@@ -1,6 +1,6 @@
 [package]
 name = "jsontool"
-version = "1.0.0"
+version = "1.0.1"
 description = "jsontool - minimal JSON graph editor"
 authors = ["43086FG"]
 edition = "2021"

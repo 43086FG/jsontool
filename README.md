@@ -17,7 +17,7 @@ jsontool 把 JSON 当作可展开的结构来编辑：树形视图逐层浏览�
 - 作者：43086FG
 - 许可证：MIT（见 `LICENSE`）
 - 平台：Windows 10/11 x64；Windows 7 SP1 需 WebView2 Runtime 109
-- 版本：1.0.0
+- 版本：1.0.1
 
 ### 截图
 
@@ -154,7 +154,7 @@ npm run tauri:build
 ```powershell
 # 先完成 npm run tauri:build
 & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" installer\jsontool.iss
-# 产物：installer/jsontool-Setup-1.0.0.exe
+# 产物：installer/jsontool-Setup-1.0.1.exe
 ```
 
 - 安装向导强制显示语言选择（`ShowLanguageDialog=yes`），8 种语言可选；4 个自定义 `.isl` 以 `Default.isl` 为基底叠加，避免缺键回退。
@@ -183,7 +183,7 @@ jsontool treats JSON as an expandable structure: browse and edit it level by lev
 - Author: 43086FG
 - License: MIT (see `LICENSE`)
 - Platform: Windows 10/11 x64; Windows 7 SP1 requires WebView2 Runtime 109
-- Version: 1.0.0
+- Version: 1.0.1
 
 ### Screenshots
 
@@ -320,7 +320,7 @@ npm run tauri:build
 ```powershell
 # Requires npm run tauri:build first
 & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" installer\jsontool.iss
-# Output: installer/jsontool-Setup-1.0.0.exe
+# Output: installer/jsontool-Setup-1.0.1.exe
 ```
 
 - The wizard always shows the language picker (`ShowLanguageDialog=yes`) with 8 languages; the 4 custom `.isl` files are layered on `Default.isl` so no message falls back to English.

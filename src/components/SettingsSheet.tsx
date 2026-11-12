@@ -218,7 +218,7 @@ export function SettingsSheet({ open, settings, onClose, onSaved }: SettingsShee
                 <div className="min-w-0">
                   <div className="text-[15px] font-semibold text-ink">jsontool</div>
                   <div className="truncate text-[12.5px] text-muted">
-                    {t('home.version', { version: '1.0.0' })}
+                    {t('home.version', { version: '1.0.1' })}
                   </div>
                 </div>
               </div>

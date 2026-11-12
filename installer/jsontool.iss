@@ -3,7 +3,7 @@
 ; Build: ISCC.exe jsontool.iss
 
 #define MyAppName "jsontool"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "43086FG"
 #define MyAppExeName "jsontool.exe"
 #define MyAppId "{{8F3C2B71-9A4D-4E6B-B2F1-3C7D5E9A1B64}"
@@ -14,7 +14,7 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.0.1.0
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoDescription={#MyAppName} Setup
 DefaultDirName={autopf}\{#MyAppName}
