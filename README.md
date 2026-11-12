@@ -144,7 +144,7 @@ npm run tauri:build
 
 ## English
 
-###概述
+### Overview
 
 jsontool treats JSON as an expandable structure: browse and edit it level by level in the tree, or open the source editor with depth-colored brackets and error-line navigation. Edits are visible immediately, unsaved changes are flagged, and closing the window asks whether to save.
 
@@ -159,7 +159,7 @@ jsontool treats JSON as an expandable structure: browse and edit it level by lev
 
 ### Features
 
-**主页**
+**Home**
 - Project list: create (auto `untitled.json`, duplicates become `untitled1.json`), open, rename, export, delete.
 - Rename edits the base name only; the extension is shown as a fixed grey suffix. Imported files keep their original extension.
 - Right-click menu: open / rename / export / delete. Export writes 2-space indented JSON to the configured default export path, or prompts for a location.
