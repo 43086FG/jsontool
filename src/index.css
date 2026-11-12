@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bundled UI font (only covers Chinese + Latin; shipped with the app, no system install required). */
+@font-face {
+  font-family: 'QuanCangKai';
+  src: url('/fonts/QuanCangKai.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --c-canvas: 242 242 247;
+    --c-card: 255 255 255;
+    --c-ink: 28 28 30;
+    --c-muted: 142 142 147;
+    --c-hairline: 229 229 234;
+    --c-accent: 0 122 255;
+    --c-subtle: 250 250 252;
+    --c-hover: 233 233 238;
+    --c-raise: 255 255 255;
+    --c-danger: 255 59 48;
+    --c-danger-ink: 139 26 26;
+    --c-danger-soft: 255 221 221;
+    --c-scrim: 0 0 0;
+    --c-error-bg: 255 221 221;
+    --c-error-fg: 28 28 30;
+    /* zh-CN / zh-TW / en: bundled font first */
+    --font-app: 'QuanCangKai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+      'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, Menlo, 'Liberation Mono', 'QuanCangKai', monospace;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --c-canvas: 13 13 16;
+    --c-card: 28 28 30;
+    --c-ink: 242 242 247;
+    --c-muted: 152 152 159;
+    --c-hairline: 58 58 61;
+    --c-accent: 10 132 255;
+    --c-subtle: 36 36 39;
+    --c-hover: 44 44 46;
+    --c-raise: 44 44 46;
+    --c-danger: 255 69 58;
+    --c-danger-ink: 255 138 138;
+    --c-danger-soft: 74 31 31;
+    --c-error-bg: 64 28 28;
+    --c-error-fg: 255 138 138;
+  }
+
+  /* The bundled font has no kana / hangul / Cyrillic / Arabic glyphs, so those
+     languages explicitly use system stacks to avoid tofu boxes. */
+  html[lang='ja'] {
+    --font-app: 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+      'Microsoft YaHei UI', sans-serif;
+  }
+
+  html[lang='ko'] {
+    --font-app: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Microsoft YaHei UI',
+      sans-serif;
+  }
+
+  html[lang='ru'] {
+    --font-app: 'Segoe UI', Tahoma, 'Microsoft YaHei UI', 'Noto Sans', Arial, sans-serif;
+  }
+
+  html[lang='ar'] {
+    --font-app: 'Segoe UI', Tahoma, Arial, 'Noto Naskh Arabic', sans-serif;
+  }
+
+  html[lang='es'] {
+    --font-app: 'Segoe UI', 'Helvetica Neue', Arial, 'Microsoft YaHei UI', sans-serif;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: rgb(var(--c-canvas));
+    color: rgb(var(--c-ink));
+    font-family: var(--font-app);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    transition: background-color 220ms ease, color 220ms ease;
+  }
+
+  button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea {
+    font-family: inherit;
+  }
+
+  ::selection {
+    background: rgba(0, 122, 255, 0.2);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-muted) / 0.45);
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--c-muted) / 0.7);
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .tap {
+    @apply transition-[background-color,color,opacity,border-color,box-shadow] duration-150 hover:brightness-[0.98] active:opacity-80 disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  .icon-btn {
+    @apply tap inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-ink hover:bg-hover;
+  }
+
+  .field {
+    @apply w-full rounded-field border border-transparent bg-card px-4 text-[16px] text-ink outline-none transition-all duration-150 placeholder:text-muted/70 focus:border-accent/50 focus:ring-4 focus:ring-accent/10;
+  }
+}
+
+/* Source editor (CodeMirror 6) */
+.cm-rainbow-0 {
+  color: #c2410c;
+}
+
+.cm-rainbow-1 {
+  color: #7c3aed;
+}
+
+.cm-rainbow-2 {
+  color: #0b66c3;
+}
+
+[data-theme='dark'] .cm-rainbow-0 {
+  color: #e8a45c;
+}
+
+[data-theme='dark'] .cm-rainbow-1 {
+  color: #c79bff;
+}
+
+[data-theme='dark'] .cm-rainbow-2 {
+  color: #7cbfff;
+}
+
+.cm-matchingBracket,
+.cm-focused .cm-matchingBracket {
+  font-weight: 700;
+  background: rgb(var(--c-accent) / 0.16) !important;
+  outline: none !important;
+  border-radius: 3px;
+}
+
+.cm-nonmatchingBracket,
+.cm-focused .cm-nonmatchingBracket {
+  color: rgb(var(--c-danger)) !important;
+  font-weight: 700;
+  background: rgb(var(--c-danger) / 0.12) !important;
+  text-decoration: underline wavy rgb(var(--c-danger));
+}
+
+.cm-error-line {
+  background: rgb(var(--c-error-bg));
+  color: rgb(var(--c-error-fg));
+}
+
+.cm-content ::selection {
+  background: rgb(var(--c-accent) / 0.2);
+}
+
+/* Editor scrollbars: always-visible, themed, never overlay-hidden. */
+.cm-scroller::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-muted) / 0.45);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+
+.cm-scroller::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--c-muted) / 0.7);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.cm-scroller::-webkit-scrollbar-track,
+.cm-scroller::-webkit-scrollbar-corner {
+  background: rgb(var(--c-subtle));
+}
+
+/* Theme switch: keep large surfaces and dividers transition smoothly. */
+.bg-canvas,
+.bg-card,
+.bg-subtle,
+.bg-hover,
+.bg-raise,
+.bg-danger-soft,
+.border-hairline {
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+[data-theme='dark'] .shadow-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .shadow-float {
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.62);
+}
+
+[data-theme='dark'] .shadow-menu {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+}
