@@ -1,0 +1,72 @@
+﻿; jsontool installer - Traditional Chinese messages
+; Inno Setup 6 language file (partial, missing entries fall back to Default.isl)
+
+[LangOptions]
+LanguageName=繁體中文
+LanguageID=$0404
+LanguageCodePage=0
+DialogFontName=Microsoft JhengHei UI
+DialogFontSize=9
+WelcomeFontName=Microsoft JhengHei UI
+WelcomeFontSize=12
+TitleFontName=Microsoft JhengHei UI
+TitleFontSize=29
+CopyrightFontName=Microsoft JhengHei UI
+CopyrightFontSize=8
+
+[Messages]
+SetupAppTitle=安裝
+SetupWindowTitle=安裝 - %1
+UninstallAppTitle=解除安裝
+UninstallAppFullTitle=%1 解除安裝
+InformationTitle=資訊
+ConfirmTitle=確認
+ErrorTitle=錯誤
+ButtonBack=< 上一步(&B)
+ButtonNext=下一步(&N) >
+ButtonInstall=安裝(&I)
+ButtonCancel=取消
+ButtonFinish=完成(&F)
+ButtonBrowse=瀏覽(&R)...
+ButtonYes=是(&Y)
+ButtonNo=否(&N)
+ButtonOK=確定
+WelcomeLabel1=歡迎使用 [name] 安裝精靈
+WelcomeLabel2=這會將 [name/ver] 安裝到您的電腦上。%n%n建議在繼續之前關閉所有其他程式。
+WizardSelectDir=選擇目標位置
+SelectDirDesc=您要將 [name] 安裝到哪裡？
+SelectDirLabel3=安裝程式會將 [name] 安裝到下列資料夾。
+SelectDirBrowseLabel=按一下「下一步」繼續。如果您想選擇其他資料夾，請按一下「瀏覽」。
+DiskSpaceMBLabel=至少需要 [mb] MB 的可用磁碟空間。
+CannotInstallToNetworkDrive=安裝程式無法安裝到網路磁碟機。
+CannotInstallToUNCPath=安裝程式無法安裝到 UNC 路徑。
+InvalidPath=您必須輸入完整路徑，包括磁碟機代號，例如：%n%nC:\APP%n%n或 UNC 路徑，例如：%n%n\\server\share
+BrowseDialogTitle=瀏覽資料夾
+BrowseDialogLabel=在下列清單中選擇一個資料夾，然後按一下「確定」。
+WizardSelectTasks=選擇附加工作
+SelectTasksDesc=您要安裝程式執行哪些附加工作？
+SelectTasksLabel2=請選擇安裝 [name] 時要執行哪些附加工作，然後按一下「下一步」。
+WizardReady=準備安裝
+ReadyLabel1=安裝程式已準備好，即將在您的電腦上安裝 [name]。
+ReadyLabel2a=按一下「安裝」開始安裝，或按一下「上一步」檢查或變更設定。
+ReadyLabel2b=按一下「安裝」開始安裝。
+ReadyMemoDir=目標位置：
+ReadyMemoTasks=附加工作：
+WizardPreparing=正在準備安裝
+PreparingDesc=安裝程式正在準備安裝 [name]。
+WizardInstalling=正在安裝
+InstallingLabel=請稍候，安裝程式正在安裝 [name]。
+FinishedHeadingLabel=完成 [name] 安裝精靈
+FinishedLabel=安裝程式已完成 [name] 的安裝。
+FinishedLabelNoIcons=安裝程式已完成 [name] 的安裝。
+ClickFinish=按一下「完成」結束安裝程式。
+FinishedRestartLabel=若要完成 [name] 的安裝，必須重新啟動電腦。要立即重新啟動嗎？
+FinishedRestartMessage=若要完成 [name] 的安裝，必須重新啟動電腦。%n%n要立即重新啟動嗎？
+StatusUninstalling=正在解除安裝 %1...
+UninstallStatusLabel=請稍候，正在從您的電腦移除 %1。
+UninstalledAll=%1 已成功解除安裝。
+UninstalledMost=%1 解除安裝完成。%n%n部分項目無法刪除，需要手動刪除。
+UninstalledAndNeedsRestart=若要完成 %1 的解除安裝，必須重新啟動電腦。%n%n要立即重新啟動嗎？
+ConfirmUninstall=確定要完全移除 %1 及其所有元件嗎？
+SetupAppRunningError=安裝程式偵測到 %1 正在執行。%n%n請關閉該程式的所有執行個體，然後按一下「確定」繼續，或按一下「取消」結束。
+UninstallAppRunningError=解除安裝程式偵測到 %1 正在執行。%n%n請關閉該程式的所有執行個體，然後按一下「確定」繼續，或按一下「取消」結束。

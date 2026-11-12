@@ -1,0 +1,76 @@
+﻿; jsontool installer - Simplified Chinese messages
+; Inno Setup 6 language file (partial, missing entries fall back to Default.isl)
+
+[LangOptions]
+LanguageName=简体中文
+LanguageID=$0804
+LanguageCodePage=0
+DialogFontName=Microsoft YaHei UI
+DialogFontSize=9
+WelcomeFontName=Microsoft YaHei UI
+WelcomeFontSize=12
+TitleFontName=Microsoft YaHei UI
+TitleFontSize=29
+CopyrightFontName=Microsoft YaHei UI
+CopyrightFontSize=8
+
+[Messages]
+SetupAppTitle=安装
+SetupWindowTitle=安装 - %1
+UninstallAppTitle=卸载
+UninstallAppFullTitle=%1 卸载
+InformationTitle=信息
+ConfirmTitle=确认
+ErrorTitle=错误
+ButtonBack=< 上一步(&B)
+ButtonNext=下一步(&N) >
+ButtonInstall=安装(&I)
+ButtonCancel=取消
+ButtonFinish=完成(&F)
+ButtonBrowse=浏览(&R)...
+ButtonYes=是(&Y)
+ButtonNo=否(&N)
+ButtonOK=确定
+WelcomeLabel1=欢迎使用 [name] 安装向导
+WelcomeLabel2=这将把 [name/ver] 安装到您的计算机上。%n%n建议在继续之前关闭所有其他程序。
+WizardSelectDir=选择目标位置
+SelectDirDesc=您希望将 [name] 安装到哪里？
+SelectDirLabel3=安装程序将把 [name] 安装到以下文件夹。
+SelectDirBrowseLabel=单击“下一步”继续。如果您想选择其他文件夹，请单击“浏览”。
+DiskSpaceMBLabel=至少需要 [mb] MB 的可用磁盘空间。
+CannotInstallToNetworkDrive=安装程序无法安装到网络驱动器。
+CannotInstallToUNCPath=安装程序无法安装到 UNC 路径。
+InvalidPath=您必须输入完整的路径，包括驱动器号，例如：%n%nC:\APP%n%n或 UNC 路径，例如：%n%n\\server\share
+BrowseDialogTitle=浏览文件夹
+BrowseDialogLabel=在下面的列表中选择一个文件夹，然后单击“确定”。
+WizardSelectTasks=选择附加任务
+SelectTasksDesc=您希望安装程序执行哪些附加任务？
+SelectTasksLabel2=请选择安装 [name] 时希望安装程序执行的附加任务，然后单击“下一步”。
+WizardReady=准备安装
+ReadyLabel1=安装程序已准备好，即将开始在您的计算机上安装 [name]。
+ReadyLabel2a=单击“安装”开始安装，或单击“上一步”检查或更改设置。
+ReadyLabel2b=单击“安装”开始安装。
+ReadyMemoDir=目标位置：
+ReadyMemoTasks=附加任务：
+WizardPreparing=正在准备安装
+PreparingDesc=安装程序正在准备安装 [name]。
+WizardInstalling=正在安装
+InstallingLabel=请稍候，安装程序正在安装 [name]。
+FinishedHeadingLabel=完成 [name] 安装向导
+FinishedLabel=安装程序已完成 [name] 的安装。
+FinishedLabelNoIcons=安装程序已完成 [name] 的安装。
+ClickFinish=单击“完成”退出安装程序。
+FinishedRestartLabel=要完成 [name] 的安装，必须重新启动计算机。现在重新启动吗？
+FinishedRestartMessage=要完成 [name] 的安装，必须重新启动计算机。%n%n现在重新启动吗？
+StatusUninstalling=正在卸载 %1...
+UninstallStatusLabel=请稍候，正在从您的计算机上删除 %1。
+UninstalledAll=%1 已成功卸载。
+UninstalledMost=%1 卸载完成。%n%n某些项目无法删除，需要手动删除。
+UninstalledAndNeedsRestart=要完成 %1 的卸载，必须重新启动计算机。%n%n现在重新启动吗？
+ConfirmUninstall=确定要完全删除 %1 及其所有组件吗？
+UninstallNotFound=文件“%1”不存在。无法卸载。
+UninstallOpenError=文件“%1”无法打开。无法卸载。
+UninstallUnsupportedVer=此版本的卸载程序无法识别卸载日志文件“%1”。无法卸载。
+UninstallUnknownEntry=卸载日志中有一个未知条目（%1）。
+SetupAppRunningError=安装程序检测到 %1 正在运行。%n%n请关闭所有该程序的实例，然后单击“确定”继续，或单击“取消”退出。
+UninstallAppRunningError=卸载程序检测到 %1 正在运行。%n%n请关闭所有该程序的实例，然后单击“确定”继续，或单击“取消”退出。

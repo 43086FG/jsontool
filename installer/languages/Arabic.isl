@@ -1,0 +1,73 @@
+﻿; jsontool installer - Arabic messages
+; Inno Setup 6 language file (partial, missing entries fall back to Default.isl)
+
+[LangOptions]
+LanguageName=العربية
+LanguageID=$0401
+LanguageCodePage=0
+DialogFontName=Segoe UI
+DialogFontSize=9
+WelcomeFontName=Segoe UI
+WelcomeFontSize=12
+TitleFontName=Segoe UI
+TitleFontSize=29
+CopyrightFontName=Segoe UI
+CopyrightFontSize=8
+RightToLeft=yes
+
+[Messages]
+SetupAppTitle=إعداد
+SetupWindowTitle=إعداد - %1
+UninstallAppTitle=إزالة
+UninstallAppFullTitle=إزالة %1
+InformationTitle=معلومات
+ConfirmTitle=تأكيد
+ErrorTitle=خطأ
+ButtonBack=< &رجوع
+ButtonNext=&التالي >
+ButtonInstall=&تثبيت
+ButtonCancel=إلغاء
+ButtonFinish=&إنهاء
+ButtonBrowse=استعراض(&B)...
+ButtonYes=&نعم
+ButtonNo=&لا
+ButtonOK=موافق
+WelcomeLabel1=مرحبًا بك في معالج إعداد [name]
+WelcomeLabel2=سيتم تثبيت [name/ver] على جهاز الكمبيوتر.%n%nيُنصح بإغلاق جميع البرامج الأخرى قبل المتابعة.
+WizardSelectDir=اختر مجلد التثبيت
+SelectDirDesc=أين تريد تثبيت [name]؟
+SelectDirLabel3=سيثبّت البرنامج [name] في المجلد التالي.
+SelectDirBrowseLabel=انقر فوق التالي للمتابعة. إذا كنت تريد اختيار مجلد آخر، فانقر فوق استعراض.
+DiskSpaceMBLabel=يلزم توفر [mb] ميغابايت من مساحة القرص على الأقل.
+CannotInstallToNetworkDrive=لا يمكن التثبيت على محرك أقراص شبكة.
+CannotInstallToUNCPath=لا يمكن التثبيت في مسار UNC.
+InvalidPath=يجب إدخال مسار كامل يتضمن حرف محرك الأقراص، مثل:%n%nC:\APP%n%nأو مسار UNC مثل:%n%n\\server\share
+BrowseDialogTitle=استعراض المجلدات
+BrowseDialogLabel=اختر مجلدًا من القائمة أدناه، ثم انقر فوق موافق.
+WizardSelectTasks=اختر المهام الإضافية
+SelectTasksDesc=ما المهام الإضافية التي تريد أن ينفذها الإعداد؟
+SelectTasksLabel2=اختر المهام الإضافية التي تريد أن ينفذها الإعداد أثناء تثبيت [name]، ثم انقر فوق التالي.
+WizardReady=جاهز للتثبيت
+ReadyLabel1=أصبح الإعداد جاهزًا لبدء تثبيت [name] على جهاز الكمبيوتر.
+ReadyLabel2a=انقر فوق تثبيت لبدء التثبيت، أو فوق رجوع لمراجعة الإعدادات أو تغييرها.
+ReadyLabel2b=انقر فوق تثبيت لبدء التثبيت.
+ReadyMemoDir=مجلد التثبيت:
+ReadyMemoTasks=المهام الإضافية:
+WizardPreparing=جارٍ التحضير للتثبيت
+PreparingDesc=يقوم الإعداد بالتحضير لتثبيت [name].
+WizardInstalling=جارٍ التثبيت
+InstallingLabel=يرجى الانتظار بينما يقوم الإعداد بتثبيت [name].
+FinishedHeadingLabel=إكمال معالج إعداد [name]
+FinishedLabel=أكمل الإعداد تثبيت [name].
+FinishedLabelNoIcons=أكمل الإعداد تثبيت [name].
+ClickFinish=انقر فوق إنهاء للخروج من الإعداد.
+FinishedRestartLabel=لإكمال تثبيت [name]، يجب إعادة تشغيل الكمبيوتر. هل تريد إعادة التشغيل الآن؟
+FinishedRestartMessage=لإكمال تثبيت [name]، يجب إعادة تشغيل الكمبيوتر.%n%nهل تريد إعادة التشغيل الآن؟
+StatusUninstalling=جارٍ إزالة %1...
+UninstallStatusLabel=يرجى الانتظار بينما تتم إزالة %1 من جهاز الكمبيوتر.
+UninstalledAll=تمت إزالة %1 بنجاح.
+UninstalledMost=اكتملت إزالة %1.%n%nتعذر حذف بعض العناصر، ويلزم حذفها يدويًا.
+UninstalledAndNeedsRestart=لإكمال إزالة %1، يجب إعادة تشغيل الكمبيوتر.%n%nهل تريد إعادة التشغيل الآن؟
+ConfirmUninstall=هل تريد إزالة %1 وجميع مكوناته نهائيًا؟
+SetupAppRunningError=اكتشف الإعداد أن %1 قيد التشغيل.%n%nيرجى إغلاق جميع نسخ البرنامج، ثم انقر فوق موافق للمتابعة، أو فوق إلغاء للخروج.
+UninstallAppRunningError=اكتشفت أداة الإزالة أن %1 قيد التشغيل.%n%nيرجى إغلاق جميع نسخ البرنامج، ثم انقر فوق موافق للمتابعة، أو فوق إلغاء للخروج.
