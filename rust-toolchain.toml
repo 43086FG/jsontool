@@ -1,0 +1,7 @@
+[toolchain]
+# Rust 1.77.2 is the last release whose standard library still supports
+# Windows 7 SP1 / 8.1. Pinning it keeps the shipped binary compatible with
+# Windows 7 (WebView2 Runtime 109 required on that OS).
+channel = "1.77.2"
+targets = ["x86_64-pc-windows-msvc"]
+profile = "minimal"
