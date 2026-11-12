@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import * as api from './lib/api';
 import ar from './locales/ar.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
@@ -67,6 +68,39 @@ applyDocumentLanguage(i18n.language);
 
 export async function changeLanguage(code: string) {
   localStorage.setItem(LANG_STORAGE_KEY, code);
+  applyDocumentLanguage(code);
+  await i18n.changeLanguage(code);
+}
+
+/** Installer language names (Inno `{language}`) → app locale codes. */
+export const INSTALLER_LANGUAGE_MAP: Record<string, string> = {
+  en: 'en',
+  zhcn: 'zh-CN',
+  zhtw: 'zh-TW',
+  ja: 'ja',
+  ko: 'ko',
+  ru: 'ru',
+  ar: 'ar',
+  es: 'es',
+};
+
+/**
+ * Applies the language picked in the installer when the user has never chosen
+ * one manually. It is deliberately not written to localStorage: the installer
+ * value is only the first-run default, and any manual choice in Settings always
+ * takes precedence from then on.
+ */
+export async function applyInstallerLanguage(): Promise<void> {
+  if (localStorage.getItem(LANG_STORAGE_KEY)) return;
+  let raw: string | null = null;
+  try {
+    raw = await api.getInstallerLanguage();
+  } catch {
+    return;
+  }
+  if (!raw) return;
+  const code = INSTALLER_LANGUAGE_MAP[raw.trim().toLowerCase()];
+  if (!code || !LANGUAGES.some((lang) => lang.code === code)) return;
   applyDocumentLanguage(code);
   await i18n.changeLanguage(code);
 }

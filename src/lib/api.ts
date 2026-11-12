@@ -215,6 +215,12 @@ export async function getStartupFile(): Promise<string | null> {
   return null;
 }
 
+/** Language name chosen in the installer (en / zhcn / zhtw / …), if any. */
+export async function getInstallerLanguage(): Promise<string | null> {
+  if (isTauri) return invoke<string | null>('get_installer_language');
+  return null;
+}
+
 export async function readTextFile(path: string): Promise<string> {
   return invoke<string>('read_text_file', { path });
 }

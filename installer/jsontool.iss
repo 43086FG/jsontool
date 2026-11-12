@@ -166,9 +166,12 @@ Root: HKLM; Subkey: "SOFTWARE\Classes\Applications\{#MyAppExeName}"; ValueType: 
 Root: HKLM; Subkey: "SOFTWARE\Classes\Applications\{#MyAppExeName}"; ValueType: string; ValueName: "SupportedTypes"; ValueData: ".json"; Flags: uninsdeletevalue; Tasks: openwith
 Root: HKLM; Subkey: "SOFTWARE\Classes\Applications\{#MyAppExeName}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"; Tasks: openwith
 Root: HKLM; Subkey: "SOFTWARE\Classes\Applications\{#MyAppExeName}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""; Tasks: openwith
+; First-run UI language (Inno language name, e.g. en/zhcn/zhtw/…) is written to
+; {app}\install-language.txt in CurStepChanged; see [Code] below.
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\logs"
+Type: files; Name: "{app}\install-language.txt"
 
 [Code]
 const
@@ -215,6 +218,12 @@ end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
+  // Remember the wizard language so the app can start in it. Any later choice
+  // made inside the app wins; uninstall deletes this file.
+  if CurStep = ssPostInstall then
+    SaveStringToFile(ExpandConstant('{app}\install-language.txt'),
+      ExpandConstant('{language}'), False);
+
   // If the runtime is still missing after the bundled installer ran (or when no
   // redist is shipped), tell the user what to install. Windows 7 SP1 needs the
   // WebView2 109 runtime, the last version that supports it.

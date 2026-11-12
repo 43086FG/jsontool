@@ -291,6 +291,25 @@ fn get_startup_path() -> Option<String> {
     })
 }
 
+/// Language chosen in the installer (en / zhcn / zhtw / …). The installer
+/// writes it next to the executable so every user of the machine gets the same
+/// first-run language, regardless of which account ran the setup. The frontend
+/// only applies it while the user has never picked a language manually.
+const INSTALL_LANGUAGE_FILE: &str = "install-language.txt";
+
+#[tauri::command]
+fn get_installer_language() -> Option<String> {
+    let exe = std::env::current_exe().ok()?;
+    let dir = exe.parent()?;
+    let raw = fs::read_to_string(dir.join(INSTALL_LANGUAGE_FILE)).ok()?;
+    let value = raw.trim().to_string();
+    if value.is_empty() {
+        None
+    } else {
+        Some(value)
+    }
+}
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
@@ -305,7 +324,8 @@ fn main() {
             save_settings,
             read_text_file,
             write_text_file,
-            get_startup_path
+            get_startup_path,
+            get_installer_language
         ])
         .run(tauri::generate_context!())
         .expect("error while running jsontool");
