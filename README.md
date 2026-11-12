@@ -21,7 +21,39 @@ jsontool 把 JSON 当作可展开的结构来编辑：树形视图逐层浏览�
 
 ### 截图
 
-> 截图待补充。仓库当前不包含图片；发布时可把截图放入 `docs/screenshots/` 并在本节引用，建议文件名为 `home.png`、`tree.png`、`detail.png`、`source.png`、`settings.png`、`toolbox.png`（可选 `dark.png`、`rtl.png`）。
+以下截图取自真实运行的应用（1280×960 窗口，2 倍缩放导出）。
+
+**主页：项目列表与新建入口**
+
+![主页](docs/screenshots/home.png)
+
+**树形视图：嵌套对象与数组，带类型与数量标注**
+
+![树形视图](docs/screenshots/tree.png)
+
+**详情编辑：键名、类型与值**
+
+![详情编辑](docs/screenshots/detail.png)
+
+**源码模式：行号、语法高亮与配对括号着色**
+
+![源码模式](docs/screenshots/source.png)
+
+**设置：主题、界面语言与默认导出路径**
+
+![设置](docs/screenshots/settings.png)
+
+**工具箱：UUID 生成与时间戳转换**
+
+![工具箱](docs/screenshots/toolbox.png)
+
+**深色主题**
+
+![深色主题](docs/screenshots/dark.png)
+
+**阿拉伯语 RTL 布局**
+
+![阿拉伯语 RTL](docs/screenshots/rtl.png)
 
 ### 功能
 
@@ -155,7 +187,39 @@ jsontool treats JSON as an expandable structure: browse and edit it level by lev
 
 ### Screenshots
 
-> Screenshots to be added. The repository currently ships no images; when publishing, place them under `docs/screenshots/` and reference them here. Suggested names: `home.png`, `tree.png`, `detail.png`, `source.png`, `settings.png`, `toolbox.png` (optional `dark.png`, `rtl.png`).
+Captured from the real app (1280×960 window, exported at 2× scale).
+
+**Home: project list and entry points**
+
+![Home](docs/screenshots/home.png)
+
+**Tree view: nested objects and arrays with type and count badges**
+
+![Tree view](docs/screenshots/tree.png)
+
+**Detail editor: key, type and value**
+
+![Detail editor](docs/screenshots/detail.png)
+
+**Source mode: line numbers, syntax highlighting and bracket colors**
+
+![Source mode](docs/screenshots/source.png)
+
+**Settings: theme, interface language and default export folder**
+
+![Settings](docs/screenshots/settings.png)
+
+**Toolbox: UUID generator and timestamp converter**
+
+![Toolbox](docs/screenshots/toolbox.png)
+
+**Dark theme**
+
+![Dark theme](docs/screenshots/dark.png)
+
+**Arabic RTL layout**
+
+![Arabic RTL](docs/screenshots/rtl.png)
 
 ### Features
 
