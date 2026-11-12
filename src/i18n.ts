@@ -85,24 +85,30 @@ export const INSTALLER_LANGUAGE_MAP: Record<string, string> = {
 };
 
 /**
- * Applies the language picked in the installer when the user has never chosen
- * one manually. It is deliberately not written to localStorage: the installer
- * value is only the first-run default, and any manual choice in Settings always
- * takes precedence from then on.
+ * Applies the language picked in the installer when it differs from the value
+ * applied by a previous install. `install-language.txt` is rewritten on every
+ * setup run, so a new installer choice must override a language left behind by
+ * an older version — that is what made /LANG=es keep showing Chinese when the
+ * WebView2 profile still held an old `jsontool.lang`. Within the same install,
+ * a manual choice in Settings always wins because the applied value is stored
+ * and no longer overrides it.
  */
+const INSTALL_LANG_APPLIED_KEY = 'jsontool.installLangApplied';
+
 export async function applyInstallerLanguage(): Promise<void> {
-  if (localStorage.getItem(LANG_STORAGE_KEY)) return;
   let raw: string | null = null;
   try {
     raw = await api.getInstallerLanguage();
   } catch {
-    return;
+    return; // No installer value: keep the system/stored language.
   }
   if (!raw) return;
-  const code = INSTALLER_LANGUAGE_MAP[raw.trim().toLowerCase()];
+  const value = raw.trim().toLowerCase();
+  const code = INSTALLER_LANGUAGE_MAP[value];
   if (!code || !LANGUAGES.some((lang) => lang.code === code)) return;
-  applyDocumentLanguage(code);
-  await i18n.changeLanguage(code);
+  if (localStorage.getItem(INSTALL_LANG_APPLIED_KEY) === value) return;
+  localStorage.setItem(INSTALL_LANG_APPLIED_KEY, value);
+  await changeLanguage(code);
 }
 
 export default i18n;

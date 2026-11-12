@@ -144,7 +144,9 @@ Name: "openwith"; Description: "{cm:TaskAssocJson}"; Flags: checkedonce
 
 [Files]
 Source: "..\src-tauri\target\release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\README.md"; DestDir: "{app}"; DestName: "README.md"; Flags: ignoreversion isreadme
+; README is installed but never opened automatically: machines without a .md
+; handler made ShellExecute fail with error 1155 on the finish page.
+Source: "..\README.md"; DestDir: "{app}"; DestName: "README.md"; Flags: ignoreversion
 Source: "..\public\fonts\QuanCangKai.ttf"; DestDir: "{app}\fonts"; Flags: ignoreversion
 Source: "redist\MicrosoftEdgeWebView2Setup.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall skipifsourcedoesntexist
 
