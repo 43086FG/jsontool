@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Frontend build output
+dist/
+
+# Rust / Tauri build output
+src-tauri/target/
+src-tauri/gen/
+
+# Installer artifacts (Setup exe is a build product, not source)
+installer/*.exe
+installer/redist/
+*.exe
+
+# MSIX packaging artifacts and local signing certificates
+msix-layout/*.exe
+*.msix
+*.msixbundle
+devcert.pfx
+devcert.cer
+
+# Local configuration and secrets
+.env
+.env.*
+*.local
+.cargo/config.toml
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs and OS junk
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Development certificate
+devcert.pfx

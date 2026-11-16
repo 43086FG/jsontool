@@ -1,0 +1,72 @@
+﻿; jsontool installer - Korean messages
+; Inno Setup 6 language file (partial, missing entries fall back to Default.isl)
+
+[LangOptions]
+LanguageName=한국어
+LanguageID=$0412
+LanguageCodePage=0
+DialogFontName=Malgun Gothic
+DialogFontSize=9
+WelcomeFontName=Malgun Gothic
+WelcomeFontSize=12
+TitleFontName=Malgun Gothic
+TitleFontSize=29
+CopyrightFontName=Malgun Gothic
+CopyrightFontSize=8
+
+[Messages]
+SetupAppTitle=설치
+SetupWindowTitle=설치 - %1
+UninstallAppTitle=제거
+UninstallAppFullTitle=%1 제거
+InformationTitle=정보
+ConfirmTitle=확인
+ErrorTitle=오류
+ButtonBack=< 이전(&B)
+ButtonNext=다음(&N) >
+ButtonInstall=설치(&I)
+ButtonCancel=취소
+ButtonFinish=완료(&F)
+ButtonBrowse=찾아보기(&R)...
+ButtonYes=예(&Y)
+ButtonNo=아니오(&N)
+ButtonOK=확인
+WelcomeLabel1=[name] 설치 마법사에 오신 것을 환영합니다
+WelcomeLabel2=이 마법사는 [name/ver]을(를) 컴퓨터에 설치합니다.%n%n계속하기 전에 다른 모든 프로그램을 닫는 것이 좋습니다.
+WizardSelectDir=대상 위치 선택
+SelectDirDesc=[name]을(를) 어디에 설치하시겠습니까?
+SelectDirLabel3=설치 프로그램이 다음 폴더에 [name]을(를) 설치합니다.
+SelectDirBrowseLabel=계속하려면 다음을 클릭하십시오. 다른 폴더를 선택하려면 찾아보기를 클릭하십시오.
+DiskSpaceMBLabel=최소 [mb]MB의 사용 가능한 디스크 공간이 필요합니다.
+CannotInstallToNetworkDrive=네트워크 드라이브에는 설치할 수 없습니다.
+CannotInstallToUNCPath=UNC 경로에는 설치할 수 없습니다.
+InvalidPath=C:\APP 또는 \\server\share와 같은 전체 경로를 입력해야 합니다.
+BrowseDialogTitle=폴더 찾아보기
+BrowseDialogLabel=아래 목록에서 폴더를 선택한 후 확인을 클릭하십시오.
+WizardSelectTasks=추가 작업 선택
+SelectTasksDesc=설치 프로그램이 수행할 추가 작업을 선택하십시오.
+SelectTasksLabel2=[name]을(를) 설치하는 동안 수행할 추가 작업을 선택한 후 다음을 클릭하십시오.
+WizardReady=설치 준비 완료
+ReadyLabel1=이제 [name]을(를) 컴퓨터에 설치할 준비가 되었습니다.
+ReadyLabel2a=설치를 클릭하여 설치를 시작하거나 이전을 클릭하여 설정을 검토하거나 변경하십시오.
+ReadyLabel2b=설치를 클릭하여 설치를 시작하십시오.
+ReadyMemoDir=대상 위치:
+ReadyMemoTasks=추가 작업:
+WizardPreparing=설치 준비 중
+PreparingDesc=[name] 설치를 준비하는 중입니다.
+WizardInstalling=설치 중
+InstallingLabel=[name]을(를) 설치하는 중입니다. 잠시 기다려 주십시오.
+FinishedHeadingLabel=[name] 설치 마법사 완료
+FinishedLabel=[name] 설치가 완료되었습니다.
+FinishedLabelNoIcons=[name] 설치가 완료되었습니다.
+ClickFinish=완료를 클릭하여 설치를 종료하십시오.
+FinishedRestartLabel=[name] 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다. 지금 다시 시작하시겠습니까?
+FinishedRestartMessage=[name] 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다.%n%n지금 다시 시작하시겠습니까?
+StatusUninstalling=%1 제거 중...
+UninstallStatusLabel=컴퓨터에서 %1을(를) 제거하는 중입니다. 잠시 기다려 주십시오.
+UninstalledAll=%1이(가) 성공적으로 제거되었습니다.
+UninstalledMost=%1 제거가 완료되었습니다.%n%n일부 항목은 삭제할 수 없어 수동으로 삭제해야 합니다.
+UninstalledAndNeedsRestart=%1 제거를 완료하려면 컴퓨터를 다시 시작해야 합니다.%n%n지금 다시 시작하시겠습니까?
+ConfirmUninstall=%1 및 모든 구성 요소를 완전히 제거하시겠습니까?
+SetupAppRunningError=%1이(가) 실행 중입니다.%n%n계속하려면 해당 프로그램의 모든 인스턴스를 닫은 후 확인을 클릭하고, 종료하려면 취소를 클릭하십시오.
+UninstallAppRunningError=%1이(가) 실행 중입니다.%n%n계속하려면 해당 프로그램의 모든 인스턴스를 닫은 후 확인을 클릭하고, 종료하려면 취소를 클릭하십시오.
