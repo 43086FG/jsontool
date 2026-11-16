@@ -35,5 +35,7 @@ devcert.cer
 Thumbs.db
 desktop.ini
 
-# Development certificate
+# Development certificates
 devcert.pfx
+devcert.store.pfx
+devcert.store.cer

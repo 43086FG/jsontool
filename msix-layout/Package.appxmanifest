@@ -12,8 +12,8 @@
   IgnorableNamespaces="uap uap2 uap3 uap10 desktop desktop6 rescap">
 
   <Identity
-    Name="jsontool"
-    Publisher="CN=43086FG"
+    Name="43086FG.jsontool-editor"
+    Publisher="CN=595AEEB9-48CF-4F14-8A3A-426311C8CF4A"
     Version="2.0.0.0" />
 
   <Properties>
