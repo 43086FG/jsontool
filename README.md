@@ -15,9 +15,9 @@ A minimal Windows JSON editor with an iOS-like look (light / dark / system). It 
 jsontool 把 JSON 当作可展开的结构来编辑：树形视图逐层浏览与增删改，源码模式则提供带括号着色、错误行定位的编辑器。所有修改即时可见，未保存状态有明确提示，关闭窗口前会询问是否保存。
 
 - 作者：43086FG
-- 许可证：MIT（见 `LICENSE`）
+- 许可证：源码与仓库内非二进制文件为 MIT（见 `LICENSE`）；2.0.0 MSIX 发布包内的二进制产物为 PolyForm Noncommercial 1.0.0，禁止商业用途
 - 平台：Windows 10/11 x64；Windows 7 SP1 需 WebView2 Runtime 109
-- 版本：1.0.1
+- 版本：2.0.0
 
 ### 截图
 
@@ -169,7 +169,8 @@ npm run tauri:build
 
 ### 授权
 
-- 本项目代码：MIT，版权人 43086FG。
+- 源码及本仓库内除二进制发布包以外的所有文件：MIT，版权人 43086FG（见 `LICENSE`）。
+- 2.0.0 发布的 MSIX zip 属于该 zip 内的二进制产物，不适用 MIT，而适用 **PolyForm Noncommercial 1.0.0**，禁止商业用途；许可全文见 [LICENSES/PolyForm-Noncommercial-1.0.0.txt](LICENSES/PolyForm-Noncommercial-1.0.0.txt)。
 - 第三方组件、字体、图标与安装工具链授权见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。字体已确认可商用；应用图标与插画由项目作者提供，不含第三方版权内容。
 
 ---
@@ -181,9 +182,9 @@ npm run tauri:build
 jsontool treats JSON as an expandable structure: browse and edit it level by level in the tree, or open the source editor with depth-colored brackets and error-line navigation. Edits are visible immediately, unsaved changes are flagged, and closing the window asks whether to save.
 
 - Author: 43086FG
-- License: MIT (see `LICENSE`)
+- License: MIT for the source code and all non-binary files in this repository (see `LICENSE`); the binary artifacts inside the 2.0.0 MSIX release package are licensed under PolyForm Noncommercial 1.0.0 and may not be used commercially
 - Platform: Windows 10/11 x64; Windows 7 SP1 requires WebView2 Runtime 109
-- Version: 1.0.1
+- Version: 2.0.0
 
 ### Screenshots
 
@@ -335,5 +336,6 @@ npm run tauri:build
 
 ### License
 
-- Project code: MIT, copyright 43086FG.
+- Source code and all files in this repository except binary release packages: MIT, copyright 43086FG (see `LICENSE`).
+- The binary artifacts inside the 2.0.0 MSIX zip are not MIT-licensed; they are licensed under **PolyForm Noncommercial 1.0.0**, which prohibits commercial use. Full text: [LICENSES/PolyForm-Noncommercial-1.0.0.txt](LICENSES/PolyForm-Noncommercial-1.0.0.txt).
 - Third-party components, fonts, artwork and installer toolchain: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). The bundled font is cleared for commercial use; app icons and artwork are provided by the project author and contain no third-party copyrighted content.

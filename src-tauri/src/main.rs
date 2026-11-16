@@ -295,8 +295,56 @@ fn get_startup_path() -> Option<String> {
 /// only applies it while the user has never picked a language manually.
 const INSTALL_LANGUAGE_FILE: &str = "install-language.txt";
 
+/// An MSIX package directory is read-only and no installer writes
+/// `install-language.txt` there; the file would also be shared by every user.
+/// Ignore it when running with package identity so the first-run picker owns
+/// the choice instead.
+#[cfg(target_os = "windows")]
+fn package_family_name() -> Option<String> {
+    const ERROR_INSUFFICIENT_BUFFER: i32 = 122;
+    #[link(name = "kernel32")]
+    unsafe extern "system" {
+        fn GetCurrentPackageFamilyName(length: *mut u32, name: *mut u16) -> i32;
+    }
+    let mut length: u32 = 0;
+    let status = unsafe { GetCurrentPackageFamilyName(&mut length, std::ptr::null_mut()) };
+    if status != ERROR_INSUFFICIENT_BUFFER {
+        return None;
+    }
+    let mut buffer = vec![0u16; length as usize];
+    let status = unsafe { GetCurrentPackageFamilyName(&mut length, buffer.as_mut_ptr()) };
+    if status != 0 {
+        return None;
+    }
+    let end = buffer.iter().position(|&c| c == 0).unwrap_or(buffer.len());
+    Some(String::from_utf16_lossy(&buffer[..end]))
+}
+
+#[cfg(not(target_os = "windows"))]
+fn package_family_name() -> Option<String> {
+    None
+}
+
+/// Keep the WebView2 profile (localStorage, IndexedDB, cache) inside the
+/// package's LocalState folder for MSIX builds. Windows removes that folder on
+/// uninstall, so a fresh install starts with no saved language choice.
+fn msix_webview_data_dir() -> Option<PathBuf> {
+    let family = package_family_name()?;
+    let local_app_data = std::env::var_os("LOCALAPPDATA")?;
+    Some(
+        PathBuf::from(local_app_data)
+            .join("Packages")
+            .join(family)
+            .join("LocalState")
+            .join("WebView2"),
+    )
+}
+
 #[tauri::command]
 fn get_installer_language() -> Option<String> {
+    if package_family_name().is_some() {
+        return None;
+    }
     let exe = std::env::current_exe().ok()?;
     let dir = exe.parent()?;
     let raw = fs::read_to_string(dir.join(INSTALL_LANGUAGE_FILE)).ok()?;
@@ -326,6 +374,27 @@ fn main() {
             get_startup_path,
             get_installer_language
         ])
+        .setup(|app| {
+            let mut window = tauri::WebviewWindowBuilder::new(
+                app,
+                "main",
+                tauri::WebviewUrl::App("index.html".into()),
+            )
+            .title("jsontool")
+            .inner_size(1100.0, 760.0)
+            .min_inner_size(880.0, 600.0)
+            .resizable(true)
+            .center();
+
+            // MSIX builds keep localStorage in LocalState, which is removed
+            // together with the package on uninstall.
+            if let Some(data_dir) = msix_webview_data_dir() {
+                window = window.data_directory(data_dir);
+            }
+
+            window.build()?;
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running jsontool");
 }

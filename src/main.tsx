@@ -1,19 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
-import { applyInstallerLanguage } from './i18n';
+import { applyInstallerLanguage, hasSavedLanguage } from './i18n';
 import './index.css';
 import { applyStoredTheme } from './lib/theme';
 import App from './App';
+import { FirstRunLanguage } from './components/FirstRunLanguage';
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+function renderApp() {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+}
 
 async function bootstrap() {
   applyStoredTheme();
-  // First-run default from the installer; a manual choice in Settings always wins.
+  // Non-MSIX installers can still seed the first-run language; MSIX returns null.
   await applyInstallerLanguage();
 
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  if (hasSavedLanguage()) {
+    renderApp();
+    return;
+  }
+
+  // No saved choice: ask before mounting the app so no screen flashes first.
+  root.render(
     <React.StrictMode>
-      <App />
+      <FirstRunLanguage onDone={renderApp} />
     </React.StrictMode>,
   );
 }

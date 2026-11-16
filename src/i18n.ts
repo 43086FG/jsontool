@@ -30,15 +30,36 @@ export const LANGUAGES: LanguageOption[] = [
 
 export const LANG_STORAGE_KEY = 'jsontool.lang';
 
-function resolveInitialLanguage(): string {
+/** Language used when the system locale cannot be matched. */
+export const DEFAULT_LANGUAGE = 'en';
+
+/** The user's persisted choice, or null when this is a first run. */
+export function getSavedLanguage(): string | null {
   const saved = localStorage.getItem(LANG_STORAGE_KEY);
-  if (saved && LANGUAGES.some((l) => l.code === saved)) return saved;
-  const nav = navigator.language || 'zh-CN';
-  if (nav.toLowerCase().startsWith('zh-tw') || nav.toLowerCase().startsWith('zh-hk')) return 'zh-TW';
-  if (nav.toLowerCase().startsWith('zh')) return 'zh-CN';
-  const short = nav.slice(0, 2).toLowerCase();
+  return saved && LANGUAGES.some((l) => l.code === saved) ? saved : null;
+}
+
+export function hasSavedLanguage(): boolean {
+  return getSavedLanguage() !== null;
+}
+
+/** Maps a BCP-47 tag such as `zh-HK` or `es-419` to one of our locales. */
+export function matchSystemLanguage(raw: string | undefined): string {
+  const tag = (raw ?? '').toLowerCase();
+  if (!tag) return DEFAULT_LANGUAGE;
+  if (tag.startsWith('zh-tw') || tag.startsWith('zh-hk') || tag.startsWith('zh-mo')) return 'zh-TW';
+  if (tag.startsWith('zh')) return 'zh-CN';
+  const short = tag.slice(0, 2);
   const matched = LANGUAGES.find((l) => l.code.toLowerCase() === short);
-  return matched ? matched.code : 'en';
+  return matched ? matched.code : DEFAULT_LANGUAGE;
+}
+
+export function detectSystemLanguage(): string {
+  return matchSystemLanguage(typeof navigator === 'undefined' ? undefined : navigator.language);
+}
+
+function resolveInitialLanguage(): string {
+  return getSavedLanguage() ?? detectSystemLanguage();
 }
 
 export function applyDocumentLanguage(code: string) {
