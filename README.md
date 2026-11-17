@@ -172,12 +172,13 @@ npm run tauri:build
 - 源码及本仓库内除二进制发布包以外的所有文件：MIT，版权人 43086FG（见 `LICENSE`）。
 - 2.0.0 发布的 MSIX zip 属于该 zip 内的二进制产物，不适用 MIT，而适用 **PolyForm Noncommercial 1.0.0**，禁止商业用途；许可全文见 [LICENSES/PolyForm-Noncommercial-1.0.0.txt](LICENSES/PolyForm-Noncommercial-1.0.0.txt)。
 - 第三方组件、字体、图标与安装工具链授权见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)。字体已确认可商用；应用图标与插画由项目作者提供，不含第三方版权内容。
+- 软件开源，大家可免费下载，如果你觉得好用，欢迎去微软商店支持我一份。
 
 ---
 
 ## English
 
-### Overview
+###概述
 
 jsontool treats JSON as an expandable structure: browse and edit it level by level in the tree, or open the source editor with depth-colored brackets and error-line navigation. Edits are visible immediately, unsaved changes are flagged, and closing the window asks whether to save.
 
@@ -192,7 +193,7 @@ Captured from the real app (1280×960 window, exported at 2× scale).
 
 **Home: project list and entry points**
 
-![Home](docs/screenshots/home.png)
+![主页](docs/screenshots/home.png)
 
 **Tree view: nested objects and arrays with type and count badges**
 
@@ -208,7 +209,7 @@ Captured from the real app (1280×960 window, exported at 2× scale).
 
 **Settings: theme, interface language and default export folder**
 
-![Settings](docs/screenshots/settings.png)
+![设置](docs/screenshots/settings.png)
 
 **Toolbox: UUID generator and timestamp converter**
 
@@ -224,7 +225,7 @@ Captured from the real app (1280×960 window, exported at 2× scale).
 
 ### Features
 
-**Home**
+**主页**
 - Project list: create (auto `untitled.json`, duplicates become `untitled1.json`), open, rename, export, delete.
 - Rename edits the base name only; the extension is shown as a fixed grey suffix. Imported files keep their original extension.
 - Right-click menu: open / rename / export / delete. Export writes 2-space indented JSON to the configured default export path, or prompts for a location.
@@ -339,3 +340,4 @@ npm run tauri:build
 - Source code and all files in this repository except binary release packages: MIT, copyright 43086FG (see `LICENSE`).
 - The binary artifacts inside the 2.0.0 MSIX zip are not MIT-licensed; they are licensed under **PolyForm Noncommercial 1.0.0**, which prohibits commercial use. Full text: [LICENSES/PolyForm-Noncommercial-1.0.0.txt](LICENSES/PolyForm-Noncommercial-1.0.0.txt).
 - Third-party components, fonts, artwork and installer toolchain: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). The bundled font is cleared for commercial use; app icons and artwork are provided by the project author and contain no third-party copyrighted content.
+- This software is open-source, and you are welcome to download it for free. If you find it helpful, please consider supporting me by purchasing it on the Microsoft Store.
