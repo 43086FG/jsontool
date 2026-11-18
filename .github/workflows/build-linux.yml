@@ -1,0 +1,68 @@
+name: Build Linux
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Install Tauri Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            libxdo-dev \
+            libgtk-3-dev \
+            libssl-dev \
+            build-essential \
+            curl \
+            wget \
+            file
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Build Tauri app
+        run: npm run tauri build
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || 'v1.0.0-linux-alpha.1' }}
+          target_commitish: ${{ github.sha }}
+          name: 适用于Linux系统的Alpha1.0.0版本
+          body: |
+            Linux Alpha 1.0.0 build.
+            This release contains the .deb package only; no AppImage is produced.
+
+            Linux Alpha 1.0.0 版本，仅提供 .deb 安装包，不包含 AppImage。
+          files: src-tauri/target/release/bundle/deb/*.deb
+          fail_on_unmatched_files: true
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
